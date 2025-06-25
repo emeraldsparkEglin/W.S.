@@ -1,0 +1,193 @@
+🟢 PIR Motion Sensor (Passive Infrared Sensor)
+📘 What It Does:
+Detects motion by sensing changes in infrared (IR) radiation emitted by warm objects (like humans or animals).
+
+
+Commonly used in security systems, automatic lights, and room occupancy detection.
+
+
+⚙️ How It Works:
+Contains two IR sensors side by side.
+
+
+When a warm body moves across its view, it triggers a change in IR levels between the two sensors.
+
+
+Sends a digital HIGH signal (1) when motion is detected, and LOW (0) otherwise.
+
+
+🧪 Typical Arduino Connection:
+VCC → 5V
+
+
+GND → GND
+
+
+OUT → Digital Pin (e.g., D2)
+
+
+📏 Range:
+Distance: ~3–7 meters
+
+
+Angle: ~120° detection cone
+
+
+💡 Code Snippet:
+cpp
+CopyEdit
+int pirPin = 2;
+int ledPin = 13;
+
+void setup() {
+  pinMode(pirPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  if (digitalRead(pirPin) == HIGH) {
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+}
+
+
+🔵 Ultrasonic Sensor (e.g., HC-SR04)
+📘 What It Does:
+Measures distance by sending out ultrasonic waves and timing how long it takes for the echo to return.
+
+
+Common in obstacle detection, robotics, and automatic parking sensors.
+
+
+⚙️ How It Works:
+Has two main parts:
+
+
+Trigger: sends a short ultrasonic pulse (usually 40kHz)
+
+
+Echo: listens for the returning sound wave
+
+
+The time between sending and receiving is used to calculate distance.
+
+
+🧪 Typical Arduino Connection:
+VCC → 5V
+
+
+GND → GND
+
+
+TRIG → Digital Pin (e.g., D9)
+
+
+ECHO → Digital Pin (e.g., D10)
+
+
+📏 Range:
+Distance: ~2 cm to 400 cm
+
+
+Accuracy: ±3 mm
+
+
+Cone angle: ~15°
+
+
+💡 Code Snippet:
+cpp
+CopyEdit
+const int trigPin = 9;
+const int echoPin = 10;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  long duration = pulseIn(echoPin, HIGH);
+  float distance = duration * 0.034 / 2;  // in cm
+
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+  delay(500);
+}
+
+Microwave Motion Sensor (e.g., RCWL-0516)
+🔍 Key Features:
+Uses Doppler radar (microwave signals) to detect motion
+
+
+Can see through materials like plastic, wood, thin walls, cardboard — unlike PIR
+
+
+Much more sensitive and has a wider range, especially for micro-movements
+
+
+Still outputs a digital HIGH/LOW, like PIR — so code-compatible
+
+
+
+⚙️ Typical Specs:
+Range: ~5–7 meters
+
+
+Field of detection: 360° (no lens required)
+
+
+Voltage: 4–28V
+
+
+Output: Digital HIGH for ~2s when motion is detected
+
+
+
+🧪 Arduino Wiring:
+RCWL-0516 Pin
+Arduino
+VIN
+5V
+GND
+GND
+OUT
+D2 (or any digital pin)
+
+
+💡 Sample Code (same as PIR):
+cpp
+CopyEdit
+int motionPin = 2;
+int ledPin = 13;
+
+void setup() {
+  pinMode(motionPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  if (digitalRead(motionPin) == HIGH) {
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+}
+
+
+⚠️ Watch Out For:
+It can detect through walls, so it might pick up movement in adjacent rooms — sometimes a downside
+
+
+
+
