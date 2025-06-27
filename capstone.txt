@@ -1,0 +1,90 @@
+Objective:
+ Build a deployable pod that detects motion, triggers a physical response, and sends a signal to a Raspberry Pi for alerting and optional visual AI detection.
+
+🧩 Team Roles
+
+🔍 Project Requirements
+1. 3D Printed Pod Enclosure
+House Arduino Nano, sensor board, motor, and power
+
+
+Mount sensors and DC motor
+PI enclosure that allows fan hold and pin access 
+
+
+2. Sensors (3 required total):
+✅ Microwave Motion Sensor (RCWL-0516)
+
+
+✅ Ultrasonic Sensor (HC-SR04)
+
+
+➕ One optional sensor:
+
+
+Light (LDR)
+
+
+Sound Sensor
+
+
+Tilt
+Conductive wire 
+
+
+3. 2 Soldered Sensor Board run on battery power  
+Use custom pcb board
+
+
+Clean wiring and labeled pins
+
+
+4. Motor-Driven Mechanism
+Attach a 3D-printed object to a DC motor
+
+
+Spins on detection for ~2 seconds
+
+
+Controlled via transistor or MOSFET
+
+
+5. Voltage Signal to Raspberry Pi
+Arduino outputs 3.3–5V HIGH to Pi GPIO input
+
+
+Use jumper wire with inline resistor (330Ω–1kΩ)
+
+
+Signal triggers Pi-side response
+
+
+6. Raspberry Pi Alert System
+Reads GPIO signal from Arduino
+
+
+Triggers:
+
+
+Flashing LED or visual indicator
+
+
+Audio alert (e.g. siren, voice clip)
+
+
+Optional: Runs YOLO object detection via Pi camera
+
+
+
+🧪 End-of-Day Goal
+Deploy your pod. When triggered:
+The motor spins your custom 3D object
+
+
+A signal is sent to Raspberry Pi
+
+
+Pi responds with audio/visual alerts
+
+
+(Optional) Pi runs YOLO to detect person/object and log it
