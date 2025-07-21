@@ -1,0 +1,108 @@
+Module 2: GQRX for Visual Reception
+Objective: Use GUI tool to visually receive and identify signals
+Lab 2.1: Tune to FM station and demodulate audio
+Lab 2.2: Record a short RF signal (e.g., doorbell or garage remote)
+Lab 2.3: Replay captured signal with hackrf_transfer -t capture.iq
+
+Module 3: Real-World Signal Capture
+Objective: Decode real-world signals using SDR
+Lab 3.1: FM Broadcast Receiver
+Identify station frequency in GQRX
+Record with hackrf_transfer
+Playback and demodulate using Python or GNU Radio
+Lab 3.2: ADS-B Aircraft Signal Reception (1090 MHz)
+Use dump1090 or gr-air-modes
+Visualize real-time aircraft positions
+Lab 3.3: Key Fob Signal Capture (315/433/868 MHz ISM Band)
+Capture raw IQ
+Analyze timing and patterns
+
+Module 4: GNU Radio Companion Projects
+Objective: Build visual flowgraphs for signal processing
+Lab 4.1: Build an FM Receiver Flowgraph
+Source → Low-Pass Filter → WBFM Demod → Audio Sink
+Lab 4.2: IQ Logger and Spectrogram
+Source → File Sink
+Add FFT Sink for waterfall display
+Lab 4.3: ADS-B Decoder (Optional)
+Use Osmocom Source
+Integrate with ADS-B blocks
+
+Module 5: Wired HackRF-to-HackRF Communication
+Objective: Use coax + attenuators for direct safe communication
+Lab 5.1: Setup loopback between two HackRFs
+Use SMA male-to-male cable
+Insert 30–40 dB fixed attenuators on both ends
+Lab 5.2: One-way Communication
+HackRF A transmits test signal
+HackRF B receives using GQRX or GNU Radio
+Lab 5.3: Two-way communication simulation with GNU Radio
+
+Module 6: Signal Reverse Engineering and Security
+Objective: Use SDR for recon and analysis in controlled environments
+Lab 6.1: Universal Radio Hacker (URH) Analysis
+Load IQ file from key fob or ISM sensor
+Visualize and decode packets
+Lab 6.2: Signal Fingerprinting
+Identify RF patterns across time
+Estimate protocol and behavior
+Lab 6.3 (Optional): BLE/Zigbee Recon Overview
+
+Module 7: Python for SDR Control
+Objective: Script SDR tasks using Python + PyHackRF
+Lab 7.1: Record and Playback using PyHackRF bindings
+Lab 7.2: Signal Visualization with matplotlib and numpy
+Plot FFT of recorded IQ data
+Real-time visualization with Python
+
+Module 8: Mini-Circuits and RF Signal Control
+Objective: Integrate Mini-Circuits devices (e.g., splitters, attenuators)
+Lab 8.1: Controlled Signal Distribution
+Use power splitter to route signal to multiple receivers
+Lab 8.2: Use Variable Attenuators to simulate distance effects
+Lab 8.3: Measure signal degradation and range
+
+Module 9: Final Project and Advanced Demos
+Objective: Apply skills to a real SDR application
+Project Options (Choose One):
+ADS-B aircraft tracking dashboard
+Key fob reverse engineering with replay prevention
+FM band visual analyzer
+Wireless doorbell or PIR motion sensor capture
+RF signal classification using Python or GNU Radio
+
+Bonus (Optional Advanced Topics)
+SDR on Raspberry Pi 4
+DTMF and SSTV audio decoding
+Theoretical jamming/spoofing techniques
+GSM/LTE signal reconnaissance (receive-only)
+SDR Hardware
+Item
+Quantity
+Notes
+HackRF One
+10 (plus 2 spares)
+1 per student + backup units
+SDR Antennas (wideband)
+10+2
+Telescopic or dipole antennas
+USB 2.0/3.0 Data Cables
+12
+High-quality, shielded
+SMA Male-to-Male Coaxial Cables
+5–10
+For wired SDR-to-SDR labs
+30–40 dB Fixed RF Attenuators
+10
+For safe TX-to-RX wired testing
+SMA Adapters (various: M-F, RP-SMA, etc.)
+10–20
+Depending on antennas and setups
+Mini-Circuits RF Splitters (2-way)
+2–4
+Optional for shared signal distribution
+Mini-Circuits Variable Attenuators
+2–4
+Optional, for advanced labs
+
+
